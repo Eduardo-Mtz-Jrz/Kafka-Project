@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Servicio de Zookeeper: Kafka gestione el cluster
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181 # Puerto estándar para comunicación del cliente
+      ZOOKEEPER_TICK_TIME: 2000     # Unidad básica de tiempo
+    ports:
+      - "2181:2181"
+
+  # Servicio de Kafka: Mensajería basado en eventos
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka
+    depends_on:
+      - zookeeper # Kafka inicia hasta que Zookeeper este listo
+    ports:
+      - "9092:9092" # Puerto donde los ms se conectan (Bootstrap Servers)
+    environment:
+      KAFKA_BROKER_ID: 1 # Identificador único dentro del clúster
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+      # Coneccion al broker desde fuera de la red de Docker
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+
+      # Configuraciones de replicación
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1

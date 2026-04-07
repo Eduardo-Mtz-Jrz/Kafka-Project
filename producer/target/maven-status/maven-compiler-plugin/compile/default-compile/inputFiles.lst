@@ -1,0 +1,6 @@
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\ProducerApplication.java
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\user\application\created\UserCreateService.java
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\user\domain\entity\User.java
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\user\domain\port\UserCreatedPort.java
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\user\infrastructure\api\UserController.java
+C:\Users\EDUARDO MARTINEZ\Desktop\producer\src\main\java\com\example\producer\user\infrastructure\event\UserKafkaEventAdapter.java

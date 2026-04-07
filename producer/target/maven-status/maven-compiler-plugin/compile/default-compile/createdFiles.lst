@@ -1,0 +1,6 @@
+com\example\producer\user\infrastructure\event\UserKafkaEventAdapter.class
+com\example\producer\user\domain\entity\User.class
+com\example\producer\user\infrastructure\api\UserController.class
+com\example\producer\user\application\created\UserCreateService.class
+com\example\producer\ProducerApplication.class
+com\example\producer\user\domain\port\UserCreatedPort.class

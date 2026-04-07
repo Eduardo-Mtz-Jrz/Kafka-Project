@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    # Ubicación del cluster de Kafka
+    bootstrap-servers: localhost:9092
+
+    producer:
+      # Serializador para la llave: Texto simple para las llaves de los mensajes
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      # Serializador para el valor: Convierte objetos 'User' en formato JSON
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    properties:
+      # Clases de dominio sin conflictos de paquetes.
+      spring.json.add.type.headers: false
