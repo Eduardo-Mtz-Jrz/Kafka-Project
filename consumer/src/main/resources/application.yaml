@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    # --- CONFIGURACIÓN DEL CONSUMIDOR  ---
+    consumer:
+      group-id: grupo-consumidor
+
+      # DESERIALIZADORES CON MANEJO DE ERRORES:
+      # Para que, si llega un mensaje corrupto, el ms no se detenga
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+      properties:
+        # DESERIALIZADORES que procesarán el dato si no hay errores
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+        # Permite confiar en cualquier paquete para la deserialización del JSON
+        spring.json.trusted.packages: "*"
+
+        # Mapeo forzado: Convierte siempre a nuestra entidad de dominio
+        spring.json.value.default.type: "com.example.consumer.user.domain.entity.User"
+
+        # Ignora las cabeceras para evitar errores de paquetes distintos
+        spring.json.use.type.headers: false
+
+    # --- CONFIGURACIÓN DEL PRODUCTOR INTERNO  ---
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+      # JsonSerializer porque el puerto de salida envía un record
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      properties:
+        # Evita enviar metadatos de nuestras clases hacia el siguiente topic (ClientesProcesados)
+        spring.json.add.type.headers: false

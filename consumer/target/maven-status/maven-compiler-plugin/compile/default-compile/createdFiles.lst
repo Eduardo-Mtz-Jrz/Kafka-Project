@@ -1,0 +1,6 @@
+com\example\consumer\user\infrastructure\event\UserKafkaListener.class
+com\example\consumer\ConsumerApplication.class
+com\example\consumer\user\application\created\UserProcessService.class
+com\example\consumer\user\domain\entity\User.class
+com\example\consumer\user\domain\port\UserProcessedPort.class
+com\example\consumer\user\infrastructure\event\UserKafkaPublisherAdapter.class

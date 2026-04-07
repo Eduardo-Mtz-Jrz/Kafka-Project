@@ -1,0 +1,6 @@
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\ConsumerApplication.java
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\user\application\created\UserProcessService.java
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\user\domain\entity\User.java
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\user\domain\port\UserProcessedPort.java
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\user\infrastructure\event\UserKafkaListener.java
+C:\Users\EDUARDO MARTINEZ\Desktop\consumer\src\main\java\com\example\consumer\user\infrastructure\event\UserKafkaPublisherAdapter.java
